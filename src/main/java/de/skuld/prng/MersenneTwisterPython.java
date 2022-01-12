@@ -17,10 +17,8 @@ public class MersenneTwisterPython extends de.skuld.prng.MersenneTwister {
   }
 
   @Override
-  public byte[] getRandomBytes(int size) {
-    byte[] result = new byte[size];
-    twister.nextBytes(result);
-    return result;
+  public void nextBytes(byte[] bytes) {
+    twister.nextBytes(bytes);
   }
 
   @Override

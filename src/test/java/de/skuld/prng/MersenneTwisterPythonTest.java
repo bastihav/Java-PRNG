@@ -25,6 +25,8 @@ public class MersenneTwisterPythonTest extends AbstractPrngImplTest {
 
   @Override
   byte[] getActualBytes(long seed, int amountPerSeed) {
-    return new MersenneTwisterPython(seed).getRandomBytes(amountPerSeed);
+    byte[] bytes = new byte[amountPerSeed];
+    new MersenneTwisterPython(seed).nextBytes(bytes);
+    return bytes;
   }
 }

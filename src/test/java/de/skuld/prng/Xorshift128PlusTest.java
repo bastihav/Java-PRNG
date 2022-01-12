@@ -10,11 +10,15 @@ public class Xorshift128PlusTest extends AbstractPrngImplTest {
 
   @Override
   byte[] getTargetBytes(long seed, int amountPerSeed) {
-    return new Xorshift128Plus(seed).getRandomBytes(amountPerSeed);
+    byte[] bytes = new byte[amountPerSeed];
+    new Xorshift128Plus(seed).nextBytes(bytes);
+    return bytes;
   }
 
   @Override
   byte[] getActualBytes(long seed, int amountPerSeed) {
-    return new Xorshift128Plus(seed).getRandomBytes(amountPerSeed);
+    byte[] bytes = new byte[amountPerSeed];
+    new Xorshift128Plus(seed).nextBytes(bytes);
+    return bytes;
   }
 }

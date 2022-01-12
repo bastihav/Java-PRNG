@@ -15,14 +15,10 @@ public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
   }
 
   @Override
-  public byte[] getRandomBytes(int size) {
-    byte[] result = new byte[size];
-
-    for (int i = 0; i < size; i++) {
-      result[i] = nextByte();
+  public void nextBytes(byte[] bytes) {
+    for (int i = 0; i < bytes.length; i++) {
+      bytes[i] = nextByte();
     }
-
-    return result;
   }
 
   @Override

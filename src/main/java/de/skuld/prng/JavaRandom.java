@@ -17,10 +17,8 @@ public class JavaRandom extends AbstractRandom implements SeedablePRNG {
   }
 
   @Override
-  public byte[] getRandomBytes(int size) {
-    byte[] bytes = new byte[size];
+  public void nextBytes(byte[] bytes) {
     r.nextBytes(bytes);
-    return bytes;
   }
 
   @Override

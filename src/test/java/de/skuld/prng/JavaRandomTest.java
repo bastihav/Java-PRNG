@@ -15,6 +15,8 @@ public class JavaRandomTest extends AbstractPrngImplTest {
 
   @Override
   public byte[] getActualBytes(long seed, int amountPerSeed) {
-    return new JavaRandom(seed).getRandomBytes(amountPerSeed);
+    byte[] bytes = new byte[amountPerSeed];
+    new JavaRandom(seed).nextBytes(bytes);
+    return bytes;
   }
 }

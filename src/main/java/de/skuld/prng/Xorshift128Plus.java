@@ -4,7 +4,7 @@ package de.skuld.prng;
 /**
  * Implementation based on: https://github.com/v8/v8/blob/main/src/base/utils/random-number-generator.cc
  */
-public class Xorshift128Plus implements SeedablePRNG {
+public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
 
   long initialSeed;
   long state0;

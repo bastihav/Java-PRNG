@@ -3,7 +3,7 @@ package de.skuld.prng;
 import java.util.Date;
 import java.util.Random;
 
-public class JavaRandom implements SeedablePRNG {
+public class JavaRandom extends AbstractRandom implements SeedablePRNG {
 
   private final Random r;
 

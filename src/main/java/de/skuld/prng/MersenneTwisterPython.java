@@ -7,7 +7,7 @@ import org.apache.commons.math3.random.MersenneTwister;
  * Implements https://github.com/python/cpython/blob/3.10/Lib/random.py with seeding variant version
  * 2
  */
-public class MersenneTwisterPython implements SeedablePRNG {
+public class MersenneTwisterPython extends de.skuld.prng.MersenneTwister {
 
   private final MersenneTwister twister = new MersenneTwister();
 

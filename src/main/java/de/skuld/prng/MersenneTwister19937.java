@@ -1,5 +1,5 @@
 package de.skuld.prng;
 
-public class MersenneTwister19937 {
+public abstract class MersenneTwister19937 implements SeedablePRNG {
 
 }

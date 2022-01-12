@@ -1,9 +1,10 @@
 package de.skuld.prng;
 
+import java.security.SecureRandomParameters;
 import java.util.Date;
 import java.util.Random;
 
-public class JavaRandom extends AbstractRandom implements SeedablePRNG {
+public class JavaRandom extends AbstractSecureRandom implements SeedablePRNG {
 
   private final Random r;
 
@@ -14,6 +15,46 @@ public class JavaRandom extends AbstractRandom implements SeedablePRNG {
   public JavaRandom(long seed) {
     this();
     seed(seed);
+  }
+
+  @Override
+  public void setSeed(long seed) {
+    seed(seed);
+  }
+
+  @Override
+  public void reseed(SecureRandomParameters params) {
+    throw new UnsupportedOperationException("Not implemented");
+  }
+
+  @Override
+  public void reseed() {
+    throw new UnsupportedOperationException("Not implemented");
+  }
+
+  @Override
+  public void nextBytes(byte[] bytes, SecureRandomParameters params) {
+    throw new UnsupportedOperationException("Not implemented");
+  }
+
+  @Override
+  public String getAlgorithm() {
+    throw new UnsupportedOperationException("Not implemented");
+  }
+
+  @Override
+  public SecureRandomParameters getParameters() {
+    throw new UnsupportedOperationException("Not implemented");
+  }
+
+  @Override
+  public void setSeed(byte[] seed) {
+    throw new UnsupportedOperationException("Not implemented");
+  }
+
+  @Override
+  public byte[] generateSeed(int numBytes) {
+    throw new UnsupportedOperationException("Not implemented");
   }
 
   @Override

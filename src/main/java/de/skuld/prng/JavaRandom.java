@@ -79,6 +79,8 @@ public class JavaRandom extends AbstractSecureRandom implements SeedablePRNG {
 
   @Override
   public void seed(long seed) {
-    r.setSeed(seed);
+    if (r != null) {
+      r.setSeed(seed);
+    }
   }
 }

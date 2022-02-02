@@ -22,5 +22,12 @@ public interface PRNG {
    */
   boolean usesUnixTimeAsDefault();
 
+  /**
+   * Skips to byteOffset and returns length-many bytes First byte will be byteOffset!
+   *
+   * @param byteOffset amount of bytes to skip
+   */
+  byte[] getBytes(long byteOffset, int length);
+
   ImplementedPRNGs getPRNG();
 }

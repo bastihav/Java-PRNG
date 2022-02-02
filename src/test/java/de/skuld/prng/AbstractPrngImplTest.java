@@ -3,6 +3,7 @@ package de.skuld.prng;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import java.util.Arrays;
+import java.util.Random;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -81,6 +82,8 @@ public abstract class AbstractPrngImplTest {
    */
   abstract byte[] getActualBytes(long seed, int amountPerSeed);
 
+  abstract protected PRNG randomSupplier(long seed);
+
   @Test
   @Disabled
   public void validateRandomGenerator() {
@@ -93,5 +96,33 @@ public abstract class AbstractPrngImplTest {
     //Arrays.stream(getTargetBytes(seeds)).forEach(BytePrinter::printBytesAsHex);
     //System.out.println(Arrays.deepToString(getActualBytes(seeds)));
     assertArrayEquals(getTargetBytes(seeds), getActualBytes(seeds));
+  }
+
+  private void testSkip(long seed, int offset, int length) {
+
+    PRNG random1 = randomSupplier(seed);
+    byte[] actualBytes = new byte[offset + length];
+    random1.nextBytes(actualBytes);
+
+    byte[] compareToBytes = Arrays.copyOfRange(actualBytes, offset, offset + length);
+
+    PRNG random2 = randomSupplier(seed);
+    byte[] skippedBytes = random2.getBytes(offset, length);
+
+    assertArrayEquals(compareToBytes, skippedBytes);
+  }
+
+  @Test
+  public void skipWorks() {
+
+    Random random = new Random(0);
+
+    for (int i = 0; i < 10000; i++) {
+      long seed = random.nextLong();
+      int offset = random.nextInt(500);
+      int length = random.nextInt(500);
+
+      testSkip(seed, offset, length);
+    }
   }
 }

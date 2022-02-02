@@ -29,4 +29,9 @@ public class MersenneTwisterPythonTest extends AbstractPrngImplTest {
     new MersenneTwisterPython(seed).nextBytes(bytes);
     return bytes;
   }
+
+  @Override
+  protected PRNG randomSupplier(long seed) {
+    return new MersenneTwisterPython(seed);
+  }
 }

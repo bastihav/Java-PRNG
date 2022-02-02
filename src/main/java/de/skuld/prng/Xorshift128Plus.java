@@ -32,6 +32,17 @@ public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
   }
 
   @Override
+  public byte[] getBytes(long byteOffset, int length) {
+    for (int i = 0; i < byteOffset; i++) {
+      nextByte();
+    }
+
+    byte[] result = new byte[length];
+    nextBytes(result);
+    return result;
+  }
+
+  @Override
   public ImplementedPRNGs getPRNG() {
     return ImplementedPRNGs.XORSHIFT128PLUS;
   }

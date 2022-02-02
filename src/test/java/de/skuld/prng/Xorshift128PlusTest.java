@@ -21,4 +21,9 @@ public class Xorshift128PlusTest extends AbstractPrngImplTest {
     new Xorshift128Plus(seed).nextBytes(bytes);
     return bytes;
   }
+
+  @Override
+  protected PRNG randomSupplier(long seed) {
+    return new Xorshift128Plus(seed);
+  }
 }

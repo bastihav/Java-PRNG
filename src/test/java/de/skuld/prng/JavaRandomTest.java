@@ -1,6 +1,12 @@
 package de.skuld.prng;
 
+import java.util.Arrays;
 import java.util.Random;
+import java.util.function.Supplier;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class JavaRandomTest extends AbstractPrngImplTest {
 
@@ -19,4 +25,11 @@ public class JavaRandomTest extends AbstractPrngImplTest {
     new JavaRandom(seed).nextBytes(bytes);
     return bytes;
   }
+
+  @Override
+  public PRNG randomSupplier(long seed) {
+    return new JavaRandom(seed);
+  }
+
+
 }

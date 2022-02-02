@@ -32,6 +32,11 @@ public class MersenneTwisterPython extends de.skuld.prng.MersenneTwister {
   }
 
   @Override
+  public byte[] getBytes(long byteOffset, int length) {
+    return new byte[0];
+  }
+
+  @Override
   public ImplementedPRNGs getPRNG() {
     return ImplementedPRNGs.MERSENNE_TWISTER_PYTHON;
   }

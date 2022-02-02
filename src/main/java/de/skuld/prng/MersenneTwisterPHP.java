@@ -13,6 +13,11 @@ public class MersenneTwisterPHP extends MersenneTwister {
   }
 
   @Override
+  public byte[] getBytes(long byteOffset, int length) {
+    return new byte[0];
+  }
+
+  @Override
   public ImplementedPRNGs getPRNG() {
     return ImplementedPRNGs.MERSENNE_TWISTER_PHP;
   }

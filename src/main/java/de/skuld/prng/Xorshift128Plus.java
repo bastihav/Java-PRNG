@@ -4,7 +4,7 @@ package de.skuld.prng;
 /**
  * Implementation based on: https://github.com/v8/v8/blob/main/src/base/utils/random-number-generator.cc
  */
-public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
+public class Xorshift128Plus extends AbstractSecureRandom implements SeedablePRNG {
 
   long initialSeed;
   long state0;
@@ -19,6 +19,12 @@ public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
     for (int i = 0; i < bytes.length; i++) {
       bytes[i] = nextByte();
     }
+  }
+
+  @Override
+  public int nextInt() {
+    this.xorshift128(state0, state1);
+    return (int) (state0 + state1 >> 32);
   }
 
   @Override
@@ -50,7 +56,6 @@ public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
   @Override
   public void seed(long seed) {
     this.initialSeed = seed;
-    System.out.println("seed " + seed);
     state0 = murmurHash3(seed);
     state1 = murmurHash3(state0);
 
@@ -66,12 +71,11 @@ public class Xorshift128Plus extends AbstractRandom implements SeedablePRNG {
 
   private void xorshift128(long state0, long state1) {
     long s1 = state0;
-    long s0 = state1;
-    this.state0 = s0;
+    this.state0 = state1;
     s1 ^= s1 << 23;
     s1 ^= s1 >> 17;
-    s1 ^= s0;
-    s1 ^= s0 >> 26;
+    s1 ^= state1;
+    s1 ^= state1 >> 26;
     this.state1 = s1;
   }
 

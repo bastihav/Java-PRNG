@@ -1,7 +1,6 @@
 package de.skuld.prng;
 
 import java.security.SecureRandom;
-import java.security.SecureRandomParameters;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -101,6 +100,11 @@ public class AbstractSecureRandom extends SecureRandom {
 
   @Override
   public LongStream longs(long streamSize, long randomNumberOrigin, long randomNumberBound) {
+    throw new UnsupportedOperationException("Not yet implemented");
+  }
+
+  @Override
+  public void nextBytes(byte[] bytes) {
     throw new UnsupportedOperationException("Not yet implemented");
   }
 }

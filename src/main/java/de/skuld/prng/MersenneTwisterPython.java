@@ -1,6 +1,6 @@
 package de.skuld.prng;
 
-import java.util.Arrays;
+import de.skuld.prng.util.NumberBasedByteSkip;
 import org.apache.commons.math3.random.MersenneTwister;
 
 /**
@@ -32,8 +32,13 @@ public class MersenneTwisterPython extends de.skuld.prng.MersenneTwister {
   }
 
   @Override
+  public int nextInt() {
+    return twister.nextInt();
+  }
+
+  @Override
   public byte[] getBytes(long byteOffset, int length) {
-    return new byte[0];
+    return NumberBasedByteSkip.intBasedByteSkip(this, byteOffset, length);
   }
 
   @Override
@@ -43,22 +48,12 @@ public class MersenneTwisterPython extends de.skuld.prng.MersenneTwister {
 
   @Override
   public void seed(long seed) {
-    System.out.println("original seed: " + seed);
-/*    if (seed < 0) {
-      {
-        seed = seed ^ (1L << 32);
-      }
-      System.out.println(seed + " " + (seed));
-    }*/
     int[] intArray;
     if (Long.numberOfLeadingZeros(seed) >= 32) {
       intArray = new int[]{(int) seed};
     } else {
       intArray = new int[]{(int) seed, (int) (seed >> 32)};
     }
-    System.out.println("seed as array " + Arrays.toString(intArray));
     twister.setSeed(intArray);
-    //twister.setSeed(seed);
-    System.out.println(twister);
   }
 }

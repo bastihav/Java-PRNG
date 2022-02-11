@@ -18,8 +18,8 @@ public abstract class AbstractPrngImplTest {
    * @return seeds
    */
   long[] getSeeds() {
-    return new long[]{-1L, 4294967295L};
-    //return new long[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1634668549};
+    //return new long[]{-1L, 4294967295L};
+    return new long[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1634668549};
   }
 
   /**
@@ -91,7 +91,7 @@ public abstract class AbstractPrngImplTest {
     System.out.println("java: ");
     //Arrays.stream(getActualBytes(seeds)).forEach(BytePrinter::printBytesAsHex);
     System.out.println(Arrays.deepToString(getActualBytes(seeds)));
-    System.out.println("python: ");
+    System.out.println("chacha: ");
     System.out.println(Arrays.deepToString(getTargetBytes(seeds)));
     //Arrays.stream(getTargetBytes(seeds)).forEach(BytePrinter::printBytesAsHex);
     //System.out.println(Arrays.deepToString(getActualBytes(seeds)));

@@ -30,4 +30,12 @@ public interface PRNG {
   byte[] getBytes(long byteOffset, int length);
 
   ImplementedPRNGs getPRNG();
+
+  int nextInt();
+
+  long nextLong();
+
+  default boolean lowerBitsFirst() {
+    return true;
+  }
 }

@@ -19,6 +19,11 @@ public class Xoshiro128StarStar extends AbstractSecureRandom implements Seedable
     seed(seed);
   }
 
+  public Xoshiro128StarStar(int[] seeds) {
+    this();
+    xoShiRo128StarStar = new XoShiRo128StarStar(seeds);
+  }
+
   @Override
   public void nextBytes(byte[] bytes) {
     xoShiRo128StarStar.nextBytes(bytes);

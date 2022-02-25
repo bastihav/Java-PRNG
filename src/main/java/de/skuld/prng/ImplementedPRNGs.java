@@ -1,7 +1,7 @@
 package de.skuld.prng;
 
 public enum ImplementedPRNGs {
-  JAVA_RANDOM, MERSENNE_TWISTER_19937, MERSENNE_TWISTER_PHP, XORSHIFT128PLUS, MERSENNE_TWISTER_PYTHON, XOSHIRO128STARSTAR, XOSHIRO256STARSTAR, PCG32, GOLANGLCG, KNUTH, GLIBCLCG, ChaCha12, ChaCha8, ChaCha20;
+  JAVA_RANDOM, XORSHIFT128PLUS, MERSENNE_TWISTER_PYTHON, XOSHIRO128STARSTAR, XOSHIRO256STARSTAR, PCG32, GOLANGLCG, KNUTH, GLIBCLCG, ChaCha12, ChaCha8, ChaCha20;
 
   public static Class<? extends PRNG> getPRNG(ImplementedPRNGs prng) {
     switch (prng) {
@@ -9,10 +9,6 @@ public enum ImplementedPRNGs {
         return JavaRandom.class;
       case XORSHIFT128PLUS:
         return Xorshift128Plus.class;
-      case MERSENNE_TWISTER_PHP:
-        return MersenneTwisterPHP.class;
-      case MERSENNE_TWISTER_19937:
-        return MersenneTwister19937.class;
       case MERSENNE_TWISTER_PYTHON:
         return MersenneTwisterPython.class;
       case XOSHIRO128STARSTAR:

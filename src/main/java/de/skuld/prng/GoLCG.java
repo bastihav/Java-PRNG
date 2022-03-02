@@ -248,7 +248,7 @@ public class GoLCG extends AbstractSecureRandom implements SeedablePRNG {
 
   @Override
   public ImplementedPRNGs getPRNG() {
-    return null;
+    return ImplementedPRNGs.GOLANGLCG;
   }
 
   @Override

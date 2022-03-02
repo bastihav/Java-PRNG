@@ -88,7 +88,7 @@ public class Knuth extends AbstractSecureRandom implements SeedablePRNG {
 
   @Override
   public ImplementedPRNGs getPRNG() {
-    return null;
+    return ImplementedPRNGs.KNUTH;
   }
 
   @Override

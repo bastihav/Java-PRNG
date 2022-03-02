@@ -46,7 +46,7 @@ public class PCG32 extends AbstractSecureRandom implements SeedablePRNG {
 
   @Override
   public ImplementedPRNGs getPRNG() {
-    return null;
+    return ImplementedPRNGs.PCG32;
   }
 
   @Override

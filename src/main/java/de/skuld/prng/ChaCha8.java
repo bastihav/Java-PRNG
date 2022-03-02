@@ -9,4 +9,9 @@ public class ChaCha8 extends AbstractChaCha implements SeedablePRNG {
   public ChaCha8() {
     super(8);
   }
+
+  @Override
+  public ImplementedPRNGs getPRNG() {
+    return ImplementedPRNGs.ChaCha8;
+  }
 }

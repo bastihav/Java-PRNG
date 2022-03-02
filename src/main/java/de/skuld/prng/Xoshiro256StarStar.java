@@ -43,7 +43,7 @@ public class Xoshiro256StarStar extends AbstractSecureRandom implements Seedable
 
   @Override
   public ImplementedPRNGs getPRNG() {
-    return ImplementedPRNGs.XOSHIRO128STARSTAR;
+    return ImplementedPRNGs.XOSHIRO256STARSTAR;
   }
 
   @Override

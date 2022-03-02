@@ -39,7 +39,7 @@ public class GlibcLCG extends AbstractSecureRandom implements SeedablePRNG {
 
   @Override
   public ImplementedPRNGs getPRNG() {
-    return null;
+    return ImplementedPRNGs.GLIBCLCG;
   }
 
   @Override

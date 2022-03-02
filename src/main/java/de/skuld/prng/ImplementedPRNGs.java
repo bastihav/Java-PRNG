@@ -33,4 +33,35 @@ public enum ImplementedPRNGs {
         return null;
     }
   }
+
+  public static PRNG getPRNG(ImplementedPRNGs prng, long seed) {
+    switch (prng) {
+      case JAVA_RANDOM:
+        return new JavaRandom(seed);
+      case XORSHIFT128PLUS:
+        return new Xorshift128Plus(seed);
+      case MERSENNE_TWISTER_PYTHON:
+        return new MersenneTwisterPython(seed);
+      case XOSHIRO128STARSTAR:
+        return new Xoshiro128StarStar(seed);
+      case XOSHIRO256STARSTAR:
+        return new Xoshiro256StarStar(seed);
+      case KNUTH:
+        return new Knuth(seed);
+      case PCG32:
+        return new PCG32(seed);
+      case GLIBCLCG:
+        return new GlibcLCG(seed);
+      case GOLANGLCG:
+        return new GoLCG(seed);
+      case ChaCha12:
+        return new ChaCha12(seed);
+      case ChaCha8:
+        return new ChaCha8(seed);
+      case ChaCha20:
+        return new ChaCha20(seed);
+      default:
+        return null;
+    }
+  }
 }

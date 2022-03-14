@@ -1,7 +1,7 @@
 package de.skuld.prng;
 
 public enum ImplementedPRNGs {
-  JAVA_RANDOM, XORSHIFT128PLUS, MERSENNE_TWISTER_PYTHON, XOSHIRO128STARSTAR, XOSHIRO256STARSTAR, PCG32, GOLANGLCG, KNUTH, GLIBCLCG, ChaCha12, ChaCha8, ChaCha20;
+  JAVA_RANDOM, XORSHIFT128PLUS, MERSENNE_TWISTER_PYTHON, XOSHIRO128STARSTAR, XOSHIRO256STARSTAR, PCG32, GOLANGLCG, KNUTH, GLIBCLCG, CHA_CHA_12, CHA_CHA_8, CHA_CHA_20;
 
   public static Class<? extends PRNG> getPRNG(ImplementedPRNGs prng) {
     switch (prng) {
@@ -23,11 +23,11 @@ public enum ImplementedPRNGs {
         return GlibcLCG.class;
       case GOLANGLCG:
         return GoLCG.class;
-      case ChaCha12:
+      case CHA_CHA_12:
         return ChaCha12.class;
-      case ChaCha8:
+      case CHA_CHA_8:
         return ChaCha8.class;
-      case ChaCha20:
+      case CHA_CHA_20:
         return ChaCha20.class;
       default:
         return null;
@@ -54,11 +54,11 @@ public enum ImplementedPRNGs {
         return new GlibcLCG(seed);
       case GOLANGLCG:
         return new GoLCG(seed);
-      case ChaCha12:
+      case CHA_CHA_12:
         return new ChaCha12(seed);
-      case ChaCha8:
+      case CHA_CHA_8:
         return new ChaCha8(seed);
-      case ChaCha20:
+      case CHA_CHA_20:
         return new ChaCha20(seed);
       default:
         return null;

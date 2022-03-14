@@ -12,6 +12,6 @@ public class ChaCha20 extends AbstractChaCha implements SeedablePRNG {
 
   @Override
   public ImplementedPRNGs getPRNG() {
-    return ImplementedPRNGs.ChaCha20;
+    return ImplementedPRNGs.CHA_CHA_20;
   }
 }

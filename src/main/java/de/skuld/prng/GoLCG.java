@@ -1,5 +1,7 @@
 package de.skuld.prng;
 
+import com.google.common.primitives.Ints;
+
 /**
  * https://cs.opensource.google/go/go/+/refs/tags/go1.17.2:src/math/rand/rng.go;drc=refs%2Ftags%2Fgo1.17.2;l=180
  * manually verified
@@ -219,6 +221,11 @@ public class GoLCG extends AbstractSecureRandom implements SeedablePRNG {
     readVal >>= 8;
     readPos--;
     return value;
+  }
+
+  @Override
+  public int nextInt() {
+    return (int) (nextInt63() >> 32);
   }
 
   private long nextInt63() {

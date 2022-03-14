@@ -37,6 +37,11 @@ public class Xoshiro256StarStar extends AbstractSecureRandom implements Seedable
   }
 
   @Override
+  public int nextInt() {
+    return xoshiro256StarStar.nextInt();
+  }
+
+  @Override
   public long nextLong() {
     return xoshiro256StarStar.nextLong();
   }
